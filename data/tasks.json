@@ -1,0 +1,38 @@
+{
+  "start_task": "tasks.task1",
+  "tasks": [
+    {
+      "type": "normal",
+      "name": "tasks.task1"
+    },
+    {
+      "type": "conditional",
+      "name": "condition_1",
+      "outgoing_tasks": [
+        {
+          "condition": "tasks.condition1",
+          "next_task": "tasks.task3"
+        },
+        {
+          "next_task": "tasks.task4"
+        }
+      ]
+    },
+    {
+      "type": "normal",
+      "name": "tasks.task3"
+    },
+    {
+      "type": "normal",
+      "name": "tasks.task4"
+    },
+    {
+      "type": "normal",
+      "name": "tasks.task5"
+    },
+    {
+      "type": "normal",
+      "name": "tasks.task6"
+    }
+  ]
+}
