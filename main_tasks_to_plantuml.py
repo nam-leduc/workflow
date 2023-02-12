@@ -31,6 +31,6 @@ def to_plantuml(json_data):
 
 
 if __name__ == "__main__":
-    with open("data/tasks.json") as f:
+    with open("tests/test_data/data/tasks.json") as f:
         workflow = json.load(f)
     print(to_plantuml(workflow))

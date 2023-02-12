@@ -1,21 +1,19 @@
 import json
-from typing import Dict, List
 
 from src.model import WorkflowSchema
 from src.workflow_engine import WorkflowEngine
 
 
-def load_workflow_def(file_path: str) -> List[Dict]:
-    with open(file_path, "r") as f:
-        return json.load(f)
+def test_run_workflow():
+    print()
 
-
-if __name__ == "__main__":
-    with open("tests/test_data/data/tasks.json") as f:
+    with open("test_data/data/tasks.json") as f:
         workflow = json.load(f)
 
     schema = WorkflowSchema()
     workflow = schema.load(workflow)
 
     engine = WorkflowEngine(workflow)
+    engine.set_tasks_container_directory("test_data/tasks")
     engine.run()
+    engine.destroy()

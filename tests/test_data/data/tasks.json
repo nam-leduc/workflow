@@ -1,38 +1,38 @@
 {
-  "start_task": "tasks.task1",
+  "start_task": "task1",
   "tasks": [
     {
       "type": "normal",
-      "name": "tasks.task1"
+      "name": "task1"
     },
     {
       "type": "conditional",
       "name": "condition_1",
       "outgoing_tasks": [
         {
-          "condition": "tasks.condition1",
-          "next_task": "tasks.task3"
+          "condition": "condition1",
+          "next_task": "task3"
         },
         {
-          "next_task": "tasks.task4"
+          "next_task": "task4"
         }
       ]
     },
     {
       "type": "normal",
-      "name": "tasks.task3"
+      "name": "task3"
     },
     {
       "type": "normal",
-      "name": "tasks.task4"
+      "name": "task4"
     },
     {
       "type": "normal",
-      "name": "tasks.task5"
+      "name": "task5"
     },
     {
       "type": "normal",
-      "name": "tasks.task6"
+      "name": "task6"
     }
   ]
 }

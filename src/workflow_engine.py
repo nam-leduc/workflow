@@ -2,7 +2,9 @@ import importlib
 import logging
 import sys
 from abc import abstractmethod
+from os.path import exists, abspath
 
+from repository import Repository
 from . import model
 
 logging.basicConfig(
@@ -103,6 +105,13 @@ class WorkflowEngine:
         logging.info(f"Task map: {list(self._task_map.keys())}")
         logging.info(f"Task list: {self._task_list}")
 
+    def set_tasks_container_directory(self, path):
+        path = abspath(path)
+        if not exists(path):
+            raise Exception(f"Path {path} not exists")
+
+        sys.path.append(path)
+
     def run(self):
         task_idx = self._task_list.index(self._workflow.start_task)
         while task_idx < len(self._task_list):
@@ -119,3 +128,6 @@ class WorkflowEngine:
                 task_idx = self._task_list.index(next_task_name)
             else:
                 raise Exception(f"unknown task type {task}")
+
+    def destroy(self):
+        Repository.ins().destroy()
